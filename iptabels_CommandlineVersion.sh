@@ -17,6 +17,12 @@ sudo iptables -N UDP
 sudo iptables -N TCP
 sudo iptables -N ICMP
 sudo iptables -A TCP -p tcp --dport 22 -j ACCEPT
+#HTTPS
+iptables -A OUTPUT -p tcp --sport 443 -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT
+#HTTP
+iptables -A OUTPUT -p tcp --sport 80 -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
 sudo iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
 sudo iptables -A INPUT -i lo -j ACCEPT
 sudo iptables -A INPUT -m conntrack --ctstate INVALID -j DROP
