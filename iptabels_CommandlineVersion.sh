@@ -4,6 +4,7 @@ which curl &> /dev/null || sudo apt install curl -y
 which iptables &> /dev/null || sudo apt install iptables -y
 #getting iptables-persistent intsalled
 sudo apt install iptables-persistent
+sudo apt-get install netfilter-persistent
 
 #getting public IP adress from the web
 $ipadress = curl ifconfig.me
